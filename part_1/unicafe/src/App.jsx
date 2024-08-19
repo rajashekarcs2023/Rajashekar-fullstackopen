@@ -1,6 +1,24 @@
 import { useState } from 'react'
 
 
+const Button = () => {
+  return (
+    <button onClick={props.handleClick}>
+      {props.text}
+    </button>
+  )
+
+
+
+}
+
+const StatisticLine = (props) => {
+  return (
+    <p>
+      {props.text}: {props.value}
+    </p>
+  )
+}
 const Statistics = (props) => {
 
   if (props.total === 0) {
@@ -12,12 +30,12 @@ const Statistics = (props) => {
   }
   return (
     <div>
-      <p>Good: {props.good}</p>
-      <p>Neutral: {props.neutral}</p>
-      <p>Bad: {props.bad}</p> 
-      <p>Total: {props.total}</p>
-      <p>Average: {props.average.toFixed(1)}</p>
-      <p>Positive: {props.positivePercentage.toFixed(1)}%</p>
+      <StatisticLine text="Good" value={props.good} />
+      <StatisticLine text="Neutral" value={props.neutral} />    
+      <StatisticLine text="Bad" value={props.bad} />
+      <StatisticLine text="Total" value={props.total} />
+      <StatisticLine text="Average" value={props.average.toFixed(1)} />
+      <StatisticLine text="Positive" value={props.positivePercentage.toFixed(1)} />
     </div>
   )
 
